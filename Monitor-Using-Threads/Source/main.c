@@ -24,8 +24,14 @@ int main(int argc, char *argv[])
         goto exit;
     }
 
-    pthread_create(&thread_monitor_string, NULL, monitor_string, NULL);
-    pthread_join(thread_monitor_string, NULL);
+    if (pthread_create(&thread_monitor_string, NULL, monitor_string, NULL) != 0) {
+        perror("Failed to create pthread");
+    }
+
+    if (pthread_join(thread_monitor_string, NULL) != 0) {
+        perror("Failed to join pthread");
+    }
+
     rv = EXIT_SUCCESS;
 
 exit:
@@ -35,7 +41,6 @@ exit:
 static bool check_monitor_string_from_args(int argc, char *argv[], char *save_here)
 {
     bool rv = RETURN_FAILURE;
-
     if (argv[ARGS_MONITOR_STR_IND] == NULL) {
         goto exit;
     }
