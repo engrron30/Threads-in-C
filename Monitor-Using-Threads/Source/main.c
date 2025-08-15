@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 #include <pthread.h>
 
 #define STRING_ARG_IND      1
 #define STRING_LIMIT        1024
 
+static bool check_monitor_string_from_args();
 static void *monitor_string( void *arg );
 
 int main(int argc, char *argv[])
@@ -21,6 +23,13 @@ int main(int argc, char *argv[])
     pthread_join(thread_monitor_string, NULL);
 
     return 0;
+}
+
+static bool check_monitor_string_from_args(char *save_here, char *check_here[])
+{
+    bool rv = false;
+
+    return rv;
 }
 
 static void *monitor_string( void *arg )
