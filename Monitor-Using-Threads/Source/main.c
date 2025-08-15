@@ -3,10 +3,11 @@
 #include <stdbool.h>
 #include <pthread.h>
 
-#define STRING_ARG_IND      1
-#define STRING_LIMIT        1024
+#define ARGS_COMMAND_STR_IND    0
+#define ARGS_MONITOR_STR_IND    1
+#define STRING_LIMIT            1024
 
-static bool check_monitor_string_from_args();
+static bool check_monitor_string_from_args(int argc, char *save_here, char *argv[]);
 static void *monitor_string( void *arg );
 
 int main(int argc, char *argv[])
@@ -14,10 +15,7 @@ int main(int argc, char *argv[])
     pthread_t thread_monitor_string;
     char string_to_monitor[STRING_LIMIT];
 
-    if (argc == 2) {
-        strcpy(string_to_monitor, argv[STRING_ARG_IND]);
-        printf("Found string: %s\n", string_to_monitor);
-    }
+    check_monitor_string_from_args(argc, string_to_monitor, argv);
 
     pthread_create(&thread_monitor_string, NULL, monitor_string, NULL);
     pthread_join(thread_monitor_string, NULL);
@@ -25,9 +23,13 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-static bool check_monitor_string_from_args(char *save_here, char *check_here[])
+static bool check_monitor_string_from_args(int argc, char *save_here, char *argv[])
 {
     bool rv = false;
+
+    if (argc > ARGS_MONITOR_STR_IND) {
+        printf("Monitor String: %s\n", argv[ARGS_MONITOR_STR_IND]);
+    }
 
     return rv;
 }
