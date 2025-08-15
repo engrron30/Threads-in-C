@@ -24,8 +24,14 @@ int main(int argc, char *argv[])
         goto exit;
     }
 
-    if (pthread_create(&thread_monitor_string, NULL, monitor_string, NULL) != 0) {
+    /* Create a thread called thread_monitor_string.
+     * This thread accepts a string called string_to_monitor with typecast of void*.
+     * This thread also accepts function called monitor_string and the string we 
+     * added later will be accepted as parameter to monitor_string.
+     */
+    if (pthread_create(&thread_monitor_string, NULL, monitor_string, (void*) string_to_monitor) != 0) {
         perror("Failed to create pthread");
+        goto exit;
     }
 
     if (pthread_join(thread_monitor_string, NULL) != 0) {
@@ -55,7 +61,8 @@ exit:
 
 static void *monitor_string( void *arg )
 {
-    printf("Monitoring reboot...\n");
+    char *string = (char*) arg;
+    printf("Monitoring %s...\n", string);
 
     return NULL;
 }
