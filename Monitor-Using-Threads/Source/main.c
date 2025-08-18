@@ -40,6 +40,7 @@ int main(int argc, char *argv[])
 
     if (pthread_join(thread_monitor_string, NULL) != 0) {
         perror("Failed to join pthread");
+        goto exit;
     }
 
     rv = EXIT_SUCCESS;
