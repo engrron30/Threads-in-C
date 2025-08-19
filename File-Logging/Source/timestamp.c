@@ -17,17 +17,17 @@ bool get_time(char *time_str)
     }
 
     strftime(time_str, TIME_STR_MAX_LEN, "%Y-%m-%d %H:%M:%S", local);
-    printf("%s\n", time_str);
     rv = true;
 
 exit:
     return rv;
 }
 
+/*
 int main()
 {
     char timestamp[TIME_STR_MAX_LEN];
     get_time(timestamp);
     if (timestamp)
         printf("timestamp=%s\n", timestamp);
-}
+}*/
