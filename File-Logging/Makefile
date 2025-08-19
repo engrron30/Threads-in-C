@@ -1,3 +1,4 @@
+TOP_DIR := .
 SRC_DIR := Source
 INC_DIR := Include
 
