@@ -9,8 +9,9 @@ static bool ron_logger(const char *format, ...);
 
 int main()
 {
-    printf("============= Practicing fprintf() ============\n\n");
+    printf("============= GENERATING DAT FILE ============\n\n");
     ron_logger("Test Text\n");
+    printf("=============      DONE PROGRAM   ============\n\n");
 
     return 0;
 }
