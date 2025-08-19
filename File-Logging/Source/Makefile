@@ -6,7 +6,7 @@ TARGET := ron_logger
 CFLAGS := -I$(INC_DIR)
 
 all:
-	gcc $(CFLAGS) main.c logger.c -o $(TARGET)
+	gcc $(CFLAGS) *.c -o $(TARGET)
 
 clean:
 	rm ron_logger ron_file.dat
