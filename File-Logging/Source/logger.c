@@ -4,7 +4,7 @@
 #include "logger.h"
 #include "timestamp.h"
 
-bool ron_logger(const char *format, ...)
+bool logger(const char *format, ...)
 {
     bool rv = false;
 

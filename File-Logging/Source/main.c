@@ -10,8 +10,8 @@ int main()
 
     int test_num = 69;
     char *test_text = "HELOOOOOWOORRRRLLD";
-    ron_logger("test_text=%s    test_num=%d", test_text, test_num);
+    logger("test_text=%s    test_num=%d", test_text, test_num);
 
-    printf("=============      DONE PROGRAM   ============\n\n");
+    printf("=============      DONE PROGRAM   ============\n");
     return 0;
 }
