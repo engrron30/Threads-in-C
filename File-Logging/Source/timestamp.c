@@ -2,18 +2,22 @@
 #include <time.h>
 #include <stdbool.h>
 
-bool get_time()
+#include "timestamp.h"
+
+bool get_time(char *time_str)
 {
     bool rv = false;
     time_t current_time;
-    struct tm *local;
+    struct tm *local = NULL;
 
     time(&current_time);
     local = localtime(&current_time);
+    if (local == NULL) {
+        goto exit;
+    }
 
-    char buffer[64];
-    strftime(buffer, 64, "%Y-%m-%d %H:%M:%S", local);
-    printf("%s\n", buffer);
+    strftime(time_str, TIME_STR_MAX_LEN, "%Y-%m-%d %H:%M:%S", local);
+    printf("%s\n", time_str);
     rv = true;
 
 exit:
@@ -22,5 +26,8 @@ exit:
 
 int main()
 {
-    get_time();
+    char timestamp[TIME_STR_MAX_LEN];
+    get_time(timestamp);
+    if (timestamp)
+        printf("timestamp=%s\n", timestamp);
 }
