@@ -10,9 +10,12 @@ static bool ron_logger(const char *format, ...);
 int main()
 {
     printf("============= GENERATING DAT FILE ============\n\n");
-    ron_logger("Test Text\n");
-    printf("=============      DONE PROGRAM   ============\n\n");
 
+    int test_num = 69;
+    char *test_text = "HELOOOOOWOORRRRLLD"
+    ron_logger("test_text=%s    test_num=%d", test_text, text_num);
+
+    printf("=============      DONE PROGRAM   ============\n\n");
     return 0;
 }
 
