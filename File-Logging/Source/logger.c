@@ -1,7 +1,12 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-static bool ron_logger(const char *format, ...)
+#include "logger.h"
+
+#define LOG_DIR         "./"
+#define LOG_FILE        LOG_DIR"ron_file.dat"
+
+bool ron_logger(const char *format, ...)
 {
     bool rv = false;
     va_list args;
