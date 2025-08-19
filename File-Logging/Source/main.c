@@ -4,8 +4,6 @@
 
 #include "logger.h"
 
-
-
 int main()
 {
     printf("============= GENERATING DAT FILE ============\n\n");
