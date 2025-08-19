@@ -11,9 +11,9 @@ bool get_time()
     time(&current_time);
     local = localtime(&current_time);
 
-    printf("Current date and time: %02d-%02d-%04d %02d:%02d:%02d\n",
-           local->tm_mday, local->tm_mon + 1, local->tm_year + 1900,
-           local->tm_hour, local->tm_min, local->tm_sec);
+    char buffer[64];
+    strftime(buffer, 64, "%Y-%m-%d %H:%M:%S", local);
+    printf("%s\n", buffer);
     rv = true;
 
 exit:
