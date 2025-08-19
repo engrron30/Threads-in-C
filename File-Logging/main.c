@@ -26,7 +26,8 @@ static bool ron_logger(const char *format, ...)
     }
 
     va_start(args, format);
-    fprintf(file, "Testing!!!\n");
+    vfprintf(file, format, args);
+    fprintf(file, "\n");
     fclose(file);
 
     rv = true;
