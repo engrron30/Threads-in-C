@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <time.h>
-#include <stdbool.h>
 
 #include "timestamp.h"
 
 bool get_time(char *time_str)
 {
-    bool rv = false;
+    bool rv = RETURN_TIME_FAILURE;
     time_t current_time;
     struct tm *local = NULL;
 
@@ -17,17 +16,8 @@ bool get_time(char *time_str)
     }
 
     strftime(time_str, TIME_STR_MAX_LEN, "%Y-%m-%d %H:%M:%S", local);
-    rv = true;
+    rv = RETURN_TIME_SUCCESS;
 
 exit:
     return rv;
 }
-
-/*
-int main()
-{
-    char timestamp[TIME_STR_MAX_LEN];
-    get_time(timestamp);
-    if (timestamp)
-        printf("timestamp=%s\n", timestamp);
-}*/
