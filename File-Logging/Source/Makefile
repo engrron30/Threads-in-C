@@ -3,10 +3,15 @@ SRC_DIR ?= $(TOP_DIR)/Source
 INC_DIR	?= $(TOP_DIR)/Include
 
 TARGET := logger
+LOGGER_FILE_NAME = file.dat
 CFLAGS := -I$(INC_DIR)
 
+# Commands Defines
+GCC = gcc
+RM = rm
+
 all:
-	gcc $(CFLAGS) *.c -o $(TARGET)
+	$(GCC) $(CFLAGS) *.c -o $(TARGET)
 
 clean:
-	rm ron_logger ron_file.dat
+	$(RM) $(TARGET) $(LOGGER_FILE_NAME)
