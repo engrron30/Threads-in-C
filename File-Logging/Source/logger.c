@@ -4,6 +4,18 @@
 #include "logger.h"
 #include "timestamp.h"
 
+/* Accepts multiple character array arguments.
+ *
+ * This function calls a timestamp function to get the current time
+ * and stores it to time_stamp character array.
+ *
+ * Other character arrays in arguments will be printed as well with
+ * the following format:
+ * [TIMESTAMP] LOG DETAILS
+ *
+ * This function returns true if log is successful.
+ * Otherwise, return false.
+ */
 bool logger(const char *format, ...)
 {
     bool rv = false;
