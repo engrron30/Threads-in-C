@@ -38,6 +38,8 @@ int main(int argc, char *argv[])
         goto exit;
     }
 
+    /* If multiple threads are created, wait each thread to finish individually through pthread_join().
+     */
     if (pthread_join(thread_monitor_string, NULL) != 0) {
         perror("Failed to join pthread");
         goto exit;
