@@ -3,7 +3,7 @@ SRC_DIR ?= $(TOP_DIR)/Source
 INC_DIR	?= $(TOP_DIR)/Include
 
 TARGET := logger
-LOGGER_FILE_NAME = file.dat
+LOGGER_FILE_NAME = logger_file.dat
 CFLAGS := -I$(INC_DIR)
 
 # Commands Defines

@@ -4,7 +4,7 @@
 #include <stdbool.h>
 
 #define LOG_DIR         "./"
-#define LOG_FILE        LOG_DIR"ron_file.dat"
+#define LOG_FILE        LOG_DIR"logger_file.dat"
 
 bool logger(const char *format, ...);
 
