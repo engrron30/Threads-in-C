@@ -3,6 +3,14 @@
 
 #include "timestamp.h"
 
+/* Accepts an argument of character array (char *time_str).
+ * 
+ * This function will get the current time using time() method and saves
+ * it to time_str.
+ *
+ * If time is successfully saved to time_str, returb RETURN_TIME_SUCCESS.
+ * Otherwise, return RETURN_TIME_FAILURE.
+ * */
 bool get_time(char *time_str)
 {
     bool rv = RETURN_TIME_FAILURE;
